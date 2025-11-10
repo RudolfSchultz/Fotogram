@@ -8,6 +8,7 @@ body {
 header {
     background-color: rgb(10, 34, 44);
     display: flex;
+    justify-content: space-between;
     height: 100px;
     align-items: center;
     padding: 0px 160px;
@@ -24,8 +25,10 @@ main {
 
 footer {
     background-color: rgb(10, 34, 44);
-    height: 200px;
+    height: 100px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0px 160px;
 }
 
@@ -42,11 +45,35 @@ footer {
 .content {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }
 
 .single_elements img {
     width: 200px;
-    height: auto;
+    height: 200px;
     border-width: 5px;
+    object-fit: cover;
+}
+
+.DialogNavigation {
+    height: 30px;
+    object-fit: cover;
+
+}
+
+.PhotoView {
+    padding: 0px;
+    border: 0px;
+    background-color: rgb(7, 24, 32);
+}
+
+.PhotoView::backdrop {
+    opacity: 0,5;
+}
+
+.SinglePicView img {
+    object-fit: scale-down;
+    max-height: 50vh;
+    padding: 100px;
 }
