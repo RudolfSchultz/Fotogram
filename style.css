@@ -1,8 +1,8 @@
 body {
     margin: 0;
-    height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -46,7 +46,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .single_elements img {
@@ -54,6 +54,12 @@ footer {
     height: 200px;
     border-width: 5px;
     object-fit: cover;
+    border-radius: 10px;
+}
+
+.single_elements img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .DialogNavigation {
@@ -63,17 +69,96 @@ footer {
 }
 
 .PhotoView {
-    padding: 0px;
-    border: 0px;
-    background-color: rgb(7, 24, 32);
+    padding: 0;
+    border: 0;
+    background-color: rgb(19, 74, 100);
+    /* max-height: 70%; */
+    width: 70%;
+
+    border-radius: 20px;
 }
 
+dialog[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .PhotoView::backdrop {
-    
+    opacity: 0.8;
+    background-color: rgb(10, 34, 44);
+    transition: all 500ms ease-in;
 }
 
 .SinglePicView img {
     object-fit: scale-down;
-    max-height: 50vh;
     padding: 100px;
+    width: 50%;
+    max-height: 50vh;
+    border-radius: 20px;
+}
+.SinglePicView {
+    display: flex;
+    justify-content: center;
+}
+
+/* .SingleView {
+    display: flex;
+    flex: 1;
+
+
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:1280px) {
+    html {
+        font-size: 20px;
+    }
+
+    header {
+        align-items: center;
+    }
+
+    header,
+    main,
+    footer {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+}
+
+@media(max-width:767px) {
+    html {
+        font-size: 16px;
+    }
+
+    header {
+        height: 64px;
+    }
+
+    header,
+    main,
+    footer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    footer {
+        height: 64px;
+    }
+
 }
