@@ -19,26 +19,28 @@
         <h1 class="headline">Your personal photo album</h1>
         <div class="content" id="template_content"></div>
 
-        <dialog id="myDialog" class="PhotoView">
-            <header>
-                <div id="DialogPicName"></div>
-                <img onclick="closeDialog()" class="DialogNavigation" src="Assets\Extras\close.png" alt="close">
-            </header>
-            <section>
-                <div id="SingleView" class="SingleView"></div>
-            </section>
-            <footer>
-                <img onclick="GoLeft()" class="DialogNavigation" src="Assets\Extras\left.png" alt="left">
-                <div id="PageNumbers"></div>
-                <img onclick="GoRight()" class="DialogNavigation" src="Assets\Extras\right.png" alt="right">
-            </footer>
-        </dialog>
+
     </main>
 
     <footer>
 
     </footer>
 </body>
+
+<dialog id="myDialog" class="PhotoView">
+    <section class="DialogHeader">
+        <div id="DialogPicName"></div>
+        <img onclick="closeDialog()" class="DialogNavigation" src="Assets\Extras\close.png" alt="close">
+    </section>
+    <section class="DialogMain">
+        <div id="SingleView"></div>
+    </section>
+    <section class="DialogFooter">
+        <img onclick="GoLeft()" class="DialogNavigation" src="Assets\Extras\left.png" alt="left">
+        <div id="PageNumbers"></div>
+        <img onclick="GoRight()" class="DialogNavigation" src="Assets\Extras\right.png" alt="right">
+    </section>
+</dialog>
 
 <script src="script.js"></script>
 

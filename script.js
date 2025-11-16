@@ -62,18 +62,18 @@ function openDialog(index) {
 
 }
 
-function getSinglePicToHtml(index) {
-    return `<div class="SinglePicView">
-                <img src="${galerie[index]}" alt="${galerie_alt[index]}">
-            </div>`;            
-}
-
 function getSinglePicNameToHtml(index) {
     return `<div>
                 <h3>${galerie_alt[index]}<h3>
             </div>`;            
 }
 
+
+function getSinglePicToHtml(index) {
+    return `<div class="SinglePicView">
+                <img src="${galerie[index]}" alt="${galerie_alt[index]}">
+            </div>`;            
+}
 
 
 function GetPageNumber(index) {
