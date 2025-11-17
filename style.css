@@ -20,7 +20,8 @@ main {
     flex: 1;
     flex-direction: column;
     align-items: center;
-    padding: 0px 160px;
+    padding: 0 160px;
+    padding-bottom: 50px;
 }
 
 footer {
@@ -38,6 +39,7 @@ footer {
 
 .headline {
     color: white;
+    padding: 50px;
 }
 
 
@@ -66,9 +68,12 @@ footer {
     height: 30px;
     object-fit: cover;
     cursor: pointer;
+    padding: 0px 20px;
 }
 
-
+.DialogPicName {
+    padding: 0 20px;
+}
 
 .PhotoView:focus-visible {
     outline: -webkit-focus-ring-color none;
@@ -81,6 +86,8 @@ footer {
     border-radius: 20px;
     user-select: auto;
     transition: all 300ms ease-in;
+    height: 70vh;
+    width: 50vw;
 }
 
 dialog[open] {
@@ -100,7 +107,7 @@ dialog[open] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 100%;
     padding-top: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid rgb(7, 24, 32);
@@ -111,25 +118,35 @@ dialog[open] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 100%;
     padding-top: 10px;
     padding-bottom: 20px;
     border-top: 2px solid rgb(7, 24, 32);
     color: white;
 }
 
-.SinglePicView img {
-    object-fit: scale-down;
-    padding: 100px;
-    height: 40vh;
-    border-radius: 20px;
+.DialogMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
 }
 
 .SinglePicView {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
-    justify-content: center;
+    flex: 1;
 }
 
+#SingleView {
+    display: flex;
+    flex: 1;
+    padding: 40px;
+    height: -webkit-fill-available;
+}
 
 
 
@@ -157,6 +174,7 @@ dialog[open] {
         padding-left: 24px;
         padding-right: 24px;
     }
+
     .SinglePicView img {
         padding: 20px;
     }

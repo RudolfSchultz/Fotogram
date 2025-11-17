@@ -1,35 +1,52 @@
     const dialogRef = document.getElementById("myDialog");
+    const dialogElement = document.querySelector("dialog");
     let PageInfo = 0 
 
 const galerie = [
-    "Assets/Galerie/autumn-9216501_1920.jpg",
-    "Assets/Galerie/path-7341731_1280.jpg",
-    "Assets/Galerie/river-219972_1280.jpg",
-    "Assets/Galerie/sea-8041734_1280.jpg",
-    "Assets/Galerie/sisters-7103501_1280.jpg",
-    "Assets/Galerie/sunset-6899490_1920.jpg",
-    "Assets/Galerie/trees-7541217_1280.jpg",
+"Assets/Galerie/art-7083325_1280.jpg",
+"Assets/Galerie/autumn-9216501_1920.jpg",
+"Assets/Galerie/biker-407123_1280.jpg",
+"Assets/Galerie/boy-4001345_1280.jpg",
+"Assets/Galerie/caucasus-5299607_1280.jpg",
+"Assets/Galerie/caucasus-5302236_1280.jpg",
+"Assets/Galerie/godafoss-1840758_1280.jpg",
+"Assets/Galerie/iceland-1768744_1280.jpg",
+"Assets/Galerie/motorcycle-6497541_1280.jpg",
+"Assets/Galerie/mountains-4961717_1280.jpg",
+"Assets/Galerie/path-7341731_1280.jpg",
+"Assets/Galerie/river-219972_1280.jpg",
+"Assets/Galerie/sea-8041734_1280.jpg",
+"Assets/Galerie/sisters-7103501_1280.jpg",
+"Assets/Galerie/sun-1818931_1280.jpg",
+"Assets/Galerie/sunrise-5084755_1280.jpg",
+"Assets/Galerie/sunset-6899490_1920.jpg",
+"Assets/Galerie/tree-736882_1280.jpg",
+"Assets/Galerie/trees-7541217_1280.jpg",
 ];
 
 const galerie_alt = [
-    "autumn-9216501_1920.jpg",
-    "path-7341731_1280.jpg",
-    "river-219972_1280.jpg",
-    "sea-8041734_1280.jpg",
-    "sisters-7103501_1280.jpg",
-    "sunset-6899490_1920.jpg",
-    "trees-7541217_1280.jpg",
+"art-7083325_1280.jpg",
+"autumn-9216501_1920.jpg",
+"biker-407123_1280.jpg",
+"boy-4001345_1280.jpg",
+"caucasus-5299607_1280.jpg",
+"caucasus-5302236_1280.jpg",
+"godafoss-1840758_1280.jpg",
+"iceland-1768744_1280.jpg",
+"motorcycle-6497541_1280.jpg",
+"mountains-4961717_1280.jpg",
+"path-7341731_1280.jpg",
+"river-219972_1280.jpg",
+"sea-8041734_1280.jpg",
+"sisters-7103501_1280.jpg",
+"sun-1818931_1280.jpg",
+"sunrise-5084755_1280.jpg",
+"sunset-6899490_1920.jpg",
+"tree-736882_1280.jpg",
+"trees-7541217_1280.jpg",
 ]
 
 function init() {
-    render()
-}
-
-function closeDialog() {
-        dialogRef.close();
-}
-
-function render() {
     let contentRef = document.getElementById('template_content');
     for (let index = 0; index < galerie.length; index++) {
         contentRef.innerHTML += getPicToHtml(index)
@@ -42,9 +59,6 @@ function getPicToHtml(index) {
                 <img src="${galerie[index]}" alt="${galerie_alt[index]}">
             </div>`;            
 }
-
-
-
 
 
 
@@ -62,18 +76,25 @@ function openDialog(index) {
 
 }
 
+
 function getSinglePicNameToHtml(index) {
     return `<div>
-                <h3>${galerie_alt[index]}<h3>
+                <h3 class="DialogPicName">${galerie_alt[index]}</h3>
             </div>`;            
 }
-
 
 function getSinglePicToHtml(index) {
-    return `<div class="SinglePicView">
-                <img src="${galerie[index]}" alt="${galerie_alt[index]}">
+    return `<div class="SinglePicView" 
+                style="background-image: url('${galerie[index]}')">
             </div>`;            
 }
+
+
+// function getSinglePicToHtml(index) {
+//     return `<div class="SinglePicView">
+//                 <img src="${galerie[index]}" alt="${galerie_alt[index]}">
+//             </div>`;            
+// }
 
 
 function GetPageNumber(index) {
@@ -97,3 +118,30 @@ if (PageInfo > galerie.length -1) {
     }
     openDialog(PageInfo)
 }
+
+document.addEventListener('keyup', function(event) {
+  if (event.code === 'ArrowLeft') {
+    GoLeft();
+  } else if (event.code === 'ArrowRight') {
+    GoRight();
+  } 
+});
+
+
+
+function closeDialog() {
+        dialogRef.close();
+}
+
+// document.querySelector('dialog').addEventListener('click', () => {
+//     })
+
+
+dialogElement.addEventListener('click', (event) => {
+    if (event.target === dialogElement) {
+        dialogElement.close();
+    }});
+
+
+
+// document.querySelector('dialog').close();
