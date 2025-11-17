@@ -1,55 +1,56 @@
-    const dialogRef = document.getElementById("myDialog");
-    const dialogElement = document.querySelector("dialog");
-    let PageInfo = 0 
+const dialogRef = document.getElementById("myDialog");
+const dialogElement = document.querySelector("dialog");
+let Dialogcondition = false
+let PageInfo = 0
 
 const galerie = [
-"Assets/Galerie/art-7083325_1280.jpg",
-"Assets/Galerie/autumn-9216501_1920.jpg",
-"Assets/Galerie/biker-407123_1280.jpg",
-"Assets/Galerie/boy-4001345_1280.jpg",
-"Assets/Galerie/caucasus-5299607_1280.jpg",
-"Assets/Galerie/caucasus-5302236_1280.jpg",
-"Assets/Galerie/godafoss-1840758_1280.jpg",
-"Assets/Galerie/iceland-1768744_1280.jpg",
-"Assets/Galerie/motorcycle-6497541_1280.jpg",
-"Assets/Galerie/mountains-4961717_1280.jpg",
-"Assets/Galerie/path-7341731_1280.jpg",
-"Assets/Galerie/river-219972_1280.jpg",
-"Assets/Galerie/sea-8041734_1280.jpg",
-"Assets/Galerie/sisters-7103501_1280.jpg",
-"Assets/Galerie/sun-1818931_1280.jpg",
-"Assets/Galerie/sunrise-5084755_1280.jpg",
-"Assets/Galerie/sunset-6899490_1920.jpg",
-"Assets/Galerie/tree-736882_1280.jpg",
-"Assets/Galerie/trees-7541217_1280.jpg",
-"Assets/Galerie/Angeln.jpg",
-"Assets/Galerie/Bauhof.jpg",
-"Assets/Galerie/Schloss Moritzburg.jpg",
+    "Assets/Galerie/art-7083325_1280.jpg",
+    "Assets/Galerie/autumn-9216501_1920.jpg",
+    "Assets/Galerie/biker-407123_1280.jpg",
+    "Assets/Galerie/boy-4001345_1280.jpg",
+    "Assets/Galerie/caucasus-5299607_1280.jpg",
+    "Assets/Galerie/caucasus-5302236_1280.jpg",
+    "Assets/Galerie/godafoss-1840758_1280.jpg",
+    "Assets/Galerie/iceland-1768744_1280.jpg",
+    "Assets/Galerie/motorcycle-6497541_1280.jpg",
+    "Assets/Galerie/mountains-4961717_1280.jpg",
+    "Assets/Galerie/path-7341731_1280.jpg",
+    "Assets/Galerie/river-219972_1280.jpg",
+    "Assets/Galerie/sea-8041734_1280.jpg",
+    "Assets/Galerie/sisters-7103501_1280.jpg",
+    "Assets/Galerie/sun-1818931_1280.jpg",
+    "Assets/Galerie/sunrise-5084755_1280.jpg",
+    "Assets/Galerie/sunset-6899490_1920.jpg",
+    "Assets/Galerie/tree-736882_1280.jpg",
+    "Assets/Galerie/trees-7541217_1280.jpg",
+    "Assets/Galerie/Angeln.jpg",
+    "Assets/Galerie/Bauhof.jpg",
+    "Assets/Galerie/Schloss Moritzburg.jpg",
 ];
 
 const galerie_alt = [
-"art-7083325_1280.jpg",
-"autumn-9216501_1920.jpg",
-"biker-407123_1280.jpg",
-"boy-4001345_1280.jpg",
-"caucasus-5299607_1280.jpg",
-"caucasus-5302236_1280.jpg",
-"godafoss-1840758_1280.jpg",
-"iceland-1768744_1280.jpg",
-"motorcycle-6497541_1280.jpg",
-"mountains-4961717_1280.jpg",
-"path-7341731_1280.jpg",
-"river-219972_1280.jpg",
-"sea-8041734_1280.jpg",
-"sisters-7103501_1280.jpg",
-"sun-1818931_1280.jpg",
-"sunrise-5084755_1280.jpg",
-"sunset-6899490_1920.jpg",
-"tree-736882_1280.jpg",
-"trees-7541217_1280.jpg",
-"Angeln.jpg",
-"Bauhof.jpg",
-"Schloss Moritzburg.jpg",
+    "art-7083325_1280.jpg",
+    "autumn-9216501_1920.jpg",
+    "biker-407123_1280.jpg",
+    "boy-4001345_1280.jpg",
+    "caucasus-5299607_1280.jpg",
+    "caucasus-5302236_1280.jpg",
+    "godafoss-1840758_1280.jpg",
+    "iceland-1768744_1280.jpg",
+    "motorcycle-6497541_1280.jpg",
+    "mountains-4961717_1280.jpg",
+    "path-7341731_1280.jpg",
+    "river-219972_1280.jpg",
+    "sea-8041734_1280.jpg",
+    "sisters-7103501_1280.jpg",
+    "sun-1818931_1280.jpg",
+    "sunrise-5084755_1280.jpg",
+    "sunset-6899490_1920.jpg",
+    "tree-736882_1280.jpg",
+    "trees-7541217_1280.jpg",
+    "Angeln.jpg",
+    "Bauhof.jpg",
+    "Schloss Moritzburg.jpg",
 ]
 
 function init() {
@@ -63,10 +64,8 @@ function init() {
 function getPicToHtml(index) {
     return `<div class="single_elements" onclick="openDialog(${[index]})">
                 <img src="${galerie[index]}" alt="${galerie_alt[index]}">
-            </div>`;            
+            </div>`;
 }
-
-
 
 
 function openDialog(index) {
@@ -78,76 +77,68 @@ function openDialog(index) {
     PageRef.innerHTML = GetPageNumber(index + 1);
 
     dialogRef.showModal();
-    PageInfo = index 
-
+    PageInfo = index
+    Dialogcondition = true
 }
 
 
 function getSinglePicNameToHtml(index) {
     return `<div>
                 <h3 class="DialogPicName">${galerie_alt[index]}</h3>
-            </div>`;            
+            </div>`;
 }
 
 function getSinglePicToHtml(index) {
     return `<div class="SinglePicView" 
                 style="background-image: url('${galerie[index]}')">
-            </div>`;            
+            </div>`;
 }
-
-
-// function getSinglePicToHtml(index) {
-//     return `<div class="SinglePicView">
-//                 <img src="${galerie[index]}" alt="${galerie_alt[index]}">
-//             </div>`;            
-// }
 
 
 function GetPageNumber(index) {
     return `<div class="">
                 <p>${index}/${galerie.length}</p>
-            </div>`; 
+            </div>`;
 }
 
-function GoLeft (){
-PageInfo = (PageInfo - 1)
-if (PageInfo < 0) {
-        PageInfo = (galerie.length -1)
+function GoLeft() {
+    if (Dialogcondition) {
+        PageInfo = (PageInfo - 1)
+        if (PageInfo < 0) {
+            PageInfo = (galerie.length - 1)
+        }
+        openDialog(PageInfo)
     }
-    openDialog(PageInfo)
 }
 
-function GoRight (){
-PageInfo = (PageInfo + 1)
-if (PageInfo > galerie.length -1) {
-        PageInfo = 0
+function GoRight() {
+    if (Dialogcondition) {
+        PageInfo = (PageInfo + 1)
+        if (PageInfo > galerie.length - 1) {
+            PageInfo = 0
+        }
+        openDialog(PageInfo)
     }
-    openDialog(PageInfo)
 }
 
-document.addEventListener('keyup', function(event) {
-  if (event.code === 'ArrowLeft') {
-    GoLeft();
-  } else if (event.code === 'ArrowRight') {
-    GoRight();
-  } 
+document.addEventListener('keyup', function (event) {
+    if (event.code === 'ArrowLeft') {
+        GoLeft();
+    } else if (event.code === 'ArrowRight') {
+        GoRight();
+    } else if (event.code === 'Escape') {
+        closeDialog();
+    }
 });
 
-
-
 function closeDialog() {
-        dialogRef.close();
+    dialogRef.close();
+    Dialogcondition = false;
+
 }
-
-// document.querySelector('dialog').addEventListener('click', () => {
-//     })
-
 
 dialogElement.addEventListener('click', (event) => {
     if (event.target === dialogElement) {
-        dialogElement.close();
-    }});
-
-
-
-// document.querySelector('dialog').close();
+        closeDialog();
+    }
+});
