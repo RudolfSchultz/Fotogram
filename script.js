@@ -22,6 +22,9 @@ const galerie = [
 "Assets/Galerie/sunset-6899490_1920.jpg",
 "Assets/Galerie/tree-736882_1280.jpg",
 "Assets/Galerie/trees-7541217_1280.jpg",
+"Assets/Galerie/Angeln.jpg",
+"Assets/Galerie/Bauhof.jpg",
+"Assets/Galerie/Schloss Moritzburg.jpg",
 ];
 
 const galerie_alt = [
@@ -44,6 +47,9 @@ const galerie_alt = [
 "sunset-6899490_1920.jpg",
 "tree-736882_1280.jpg",
 "trees-7541217_1280.jpg",
+"Angeln.jpg",
+"Bauhof.jpg",
+"Schloss Moritzburg.jpg",
 ]
 
 function init() {

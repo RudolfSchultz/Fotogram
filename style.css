@@ -147,6 +147,11 @@ dialog[open] {
     padding: 40px;
     height: -webkit-fill-available;
 }
+.PicFromEditor {
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
 
 
@@ -175,7 +180,7 @@ dialog[open] {
         padding-right: 24px;
     }
 
-    .SinglePicView img {
+    #SingleView {
         padding: 20px;
     }
 
@@ -201,7 +206,15 @@ dialog[open] {
         height: 64px;
     }
 
-    .SinglePicView img {
+    #SingleView {
         padding: 8px;
+    }
+}
+
+
+
+@media(max-width:767px){
+    .PhotoView {
+        height: 50vh;
     }
 }
