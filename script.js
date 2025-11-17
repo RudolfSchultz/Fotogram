@@ -60,13 +60,11 @@ function init() {
     };
 }
 
-
 function getPicToHtml(index) {
     return `<div class="single_elements" onclick="openDialog(${[index]})">
                 <img src="${galerie[index]}" alt="${galerie_alt[index]}">
             </div>`;
 }
-
 
 function openDialog(index) {
     let contentRef = document.getElementById('SingleView');
@@ -75,12 +73,10 @@ function openDialog(index) {
     contentRef.innerHTML = getSinglePicToHtml(index);
     contentRefName.innerHTML = getSinglePicNameToHtml(index);
     PageRef.innerHTML = GetPageNumber(index + 1);
-
     dialogRef.showModal();
     PageInfo = index
     Dialogcondition = true
 }
-
 
 function getSinglePicNameToHtml(index) {
     return `<div>
@@ -94,7 +90,6 @@ function getSinglePicToHtml(index) {
             </div>`;
 }
 
-
 function GetPageNumber(index) {
     return `<div class="">
                 <p>${index}/${galerie.length}</p>
@@ -105,8 +100,7 @@ function GoLeft() {
     if (Dialogcondition) {
         PageInfo = (PageInfo - 1)
         if (PageInfo < 0) {
-            PageInfo = (galerie.length - 1)
-        }
+            PageInfo = (galerie.length - 1) }
         openDialog(PageInfo)
     }
 }
@@ -115,8 +109,7 @@ function GoRight() {
     if (Dialogcondition) {
         PageInfo = (PageInfo + 1)
         if (PageInfo > galerie.length - 1) {
-            PageInfo = 0
-        }
+            PageInfo = 0 }
         openDialog(PageInfo)
     }
 }
@@ -134,7 +127,6 @@ document.addEventListener('keyup', function (event) {
 function closeDialog() {
     dialogRef.close();
     Dialogcondition = false;
-
 }
 
 dialogElement.addEventListener('click', (event) => {
