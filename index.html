@@ -21,23 +21,23 @@
     </main>
 
     <footer>
-        <p>Created by <br> Rudolf Schultz</p>
+        <p class="CreatedBy">Created by <br> Rudolf Schultz</p>
         <img class="PicFromEditor" src="Assets\Galerie\JustMe.jpg" alt="Pic from Rudolf Schultz">
     </footer>
 </body>
 
-<dialog id="myDialog" class="PhotoView">
+<dialog id="myDialog" class="PhotoView" aria-labelledby="dialogTitle">
     <section class="DialogHeader">
         <div id="DialogPicName"></div>
-        <img onclick="closeDialog()" class="DialogNavigation" src="Assets\Extras\close.png" alt="close">
+        <img onclick="closeDialog()" class="DialogNavigation" src="Assets\Extras\close.png" alt="Close_BigView">
     </section>
     <section class="DialogMain">
         <div id="SingleView"></div>
     </section>
     <section class="DialogFooter">
-        <img onclick="GoLeft()" class="DialogNavigation" src="Assets\Extras\left.png" alt="left">
+        <img onclick="GoLeft()" class="DialogNavigation" src="Assets\Extras\left.png" alt="Pre_Picture">
         <div id="PageNumbers"></div>
-        <img onclick="GoRight()" class="DialogNavigation" src="Assets\Extras\right.png" alt="right">
+        <img onclick="GoRight()" class="DialogNavigation" src="Assets\Extras\right.png" alt="Next_Picture">
     </section>
 </dialog>
 

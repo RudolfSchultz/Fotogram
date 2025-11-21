@@ -25,7 +25,7 @@ const galerie = [
     "Assets/Galerie/trees-7541217_1280.jpg",
     "Assets/Galerie/Angeln.jpg",
     "Assets/Galerie/Bauhof.jpg",
-    "Assets/Galerie/Schloss Moritzburg.jpg",
+    "Assets/Galerie/SchlossMoritzburg.jpg",
 ];
 
 const galerie_alt = [
@@ -50,7 +50,7 @@ const galerie_alt = [
     "trees-7541217_1280.jpg",
     "Angeln.jpg",
     "Bauhof.jpg",
-    "Schloss Moritzburg.jpg",
+    "SchlossMoritzburg.jpg",
 ]
 
 function init() {
@@ -61,7 +61,7 @@ function init() {
 }
 
 function getPicToHtml(index) {
-    return `<div class="single_elements" onclick="openDialog(${[index]})">
+    return `<div class="single_elements" onclick="openDialog(${[index]})" role="button" tabindex="0" aria-label="Open ${galerie_alt[index]} in big view">
                 <img src="${galerie[index]}" alt="${galerie_alt[index]}">
             </div>`;
 }
@@ -80,12 +80,12 @@ function openDialog(index) {
 
 function getSinglePicNameToHtml(index) {
     return `<div>
-                <h3 class="DialogPicName">${galerie_alt[index]}</h3>
+                <h2 class="DialogPicName" id="dialogTitle">${galerie_alt[index]}</h2>
             </div>`;
 }
 
 function getSinglePicToHtml(index) {
-    return `<div class="SinglePicView" 
+    return `<div class="SinglePicView" role="img" aria-label="${galerie_alt[index]}"
                 style="background-image: url('${galerie[index]}')">
             </div>`;
 }
@@ -121,6 +121,8 @@ document.addEventListener('keyup', function (event) {
         GoRight();
     } else if (event.code === 'Escape') {
         closeDialog();
+    } else if (event.code === 'Enter') {
+        document.activeElement.click();
     }
 });
 
