@@ -70,55 +70,53 @@ function openDialog(index) {
     let contentRef = document.getElementById('SingleView');
     let contentRefName = document.getElementById('DialogPicName');
     let PageRef = document.getElementById('PageNumbers')
-    contentRef.innerHTML = getSinglePicToHtml(index);
-    contentRefName.innerHTML = getSinglePicNameToHtml(index);
-    PageRef.innerHTML = GetPageNumber(index + 1);
+    const {pic, title, page} = buildSingleView(index);  
+
+    contentRef.innerHTML = pic;
+    contentRefName.innerHTML = title;
+    PageRef.innerHTML = page;
+    
     dialogRef.showModal();
     PageInfo = index
     Dialogcondition = true
 }
 
-function getSinglePicNameToHtml(index) {
-    return `<div>
+function buildSingleView(index) {
+    const title = `<div>
                 <h2 class="DialogPicName" id="dialogTitle">${galerie_alt[index]}</h2>
             </div>`;
-}
-
-function getSinglePicToHtml(index) {
-    return `<div class="SinglePicView" role="img" aria-label="${galerie_alt[index]}"
+    const pic = `<div class="SinglePicView" role="img" aria-label="${galerie_alt[index]}"
                 style="background-image: url('${galerie[index]}')">
             </div>`;
-}
-
-function GetPageNumber(index) {
-    return `<div class="">
-                <p>${index}/${galerie.length}</p>
+    const page = `<div>
+                <p>${index + 1}/${galerie.length}</p>
             </div>`;
+    return {pic, title, page};
 }
 
-function GoLeft() {
+function SideSwitching(whichSide) {
     if (Dialogcondition) {
-        PageInfo = (PageInfo - 1)
-        if (PageInfo < 0) {
-            PageInfo = (galerie.length - 1) }
-        openDialog(PageInfo)
-    }
-}
-
-function GoRight() {
-    if (Dialogcondition) {
-        PageInfo = (PageInfo + 1)
-        if (PageInfo > galerie.length - 1) {
-            PageInfo = 0 }
+        if (whichSide) {
+            PageInfo = PageInfo - 1;
+            if (PageInfo < 0) {
+                PageInfo = galerie.length - 1;
+            }
+        }
+        else {
+            PageInfo = PageInfo + 1;
+            if (PageInfo > galerie.length - 1) {
+                PageInfo = 0;
+            }
+        }
         openDialog(PageInfo)
     }
 }
 
 document.addEventListener('keyup', function (event) {
     if (event.code === 'ArrowLeft') {
-        GoLeft();
+        SideSwitching(true);
     } else if (event.code === 'ArrowRight') {
-        GoRight();
+        SideSwitching();
     } else if (event.code === 'Escape') {
         closeDialog();
     } else if (event.code === 'Enter') {
@@ -136,3 +134,10 @@ dialogElement.addEventListener('click', (event) => {
         closeDialog();
     }
 });
+
+
+
+
+
+
+
