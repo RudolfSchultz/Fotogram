@@ -17,10 +17,13 @@ body {
     min-height: 100vh;
 }
 
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
 header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: Center;
     background-color: rgb(10, 34, 44);
     height: 100px;
     padding: 0px 160px;
@@ -39,11 +42,33 @@ main {
 footer {
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: rgb(10, 34, 44);
     height: 100px;
-    gap: 20px;
     padding: 0px 160px;
+}
+
+.contentlimit-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1920px;
+    width: 100%;
+}
+
+.contentlimit_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1920px;
+}
+
+.contentlimit-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 1920px;
 }
 
 p {
@@ -105,6 +130,7 @@ p {
     transition: all 300ms ease-in;
     height: 70vh;
     width: 50vw;
+    max-width: 1920px;
 }
 
 dialog[open] {
@@ -227,7 +253,7 @@ dialog[open] {
 
 @media(max-width:767px) {
     html {
-        font-size: 12px;
+        font-size: 16px;
     }
 
     header {
@@ -260,12 +286,14 @@ dialog[open] {
     }
 
     .DialogPicName {
-        font-size: 12.5px;
+        font-size: 16px;
 
     }
 
     .PhotoView {
-        height: 40vh;
+        height: 70vh;
+        width: 70vw;
+
     }
 
     .DialogHeader,
@@ -285,5 +313,13 @@ dialog[open] {
 
     .PicFromEditor {
         height: 40px;
+    }
+}
+
+@media(max-width:350px) {
+    .DialogHeader {
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 10px;
     }
 }

@@ -12,34 +12,44 @@
 
 <body onload="init()">
     <header>
+        <div class="contentlimit-header">
         <img class="Fotogram_Logo" src="Assets\logo\Fotogram_Logo.svg" alt="Fotogram Logo">
+        </div>
     </header>
 
-    <main>
+    <main> 
+        <div class="contentlimit_main">
         <h1 class="headline">Your personal photo album</h1>
         <div class="content" id="template_content"></div>
+        </div>
     </main>
 
     <footer>
+        <div class="contentlimit-footer">
         <p class="CreatedBy">Created by <br> Rudolf Schultz</p>
         <img class="PicFromEditor" src="Assets\Galerie\JustMe.jpg" alt="Pic from Rudolf Schultz">
+        </div>
     </footer>
-</body>
 
-<dialog id="myDialog" class="PhotoView" aria-labelledby="dialogTitle">
+    <dialog id="myDialog" class="PhotoView" aria-labelledby="dialogTitle">
     <section class="DialogHeader">
         <div id="DialogPicName"></div>
-        <img onclick="closeDialog()" class="DialogNavigation" src="Assets\Extras\close.png" alt="Close_BigView">
+        <img onclick="closeDialog()" class="DialogNavigation" tabindex="0" src="Assets\Extras\close.png" alt="Close_BigView">
     </section>
     <section class="DialogMain">
         <div id="SingleView"></div>
     </section>
     <section class="DialogFooter">
-        <img onclick="GoLeft()" class="DialogNavigation" src="Assets\Extras\left.png" alt="Pre_Picture">
+        <img onclick="GoLeft()" class="DialogNavigation" tabindex="0" src="Assets\Extras\left.png" alt="Pre_Picture">
         <div id="PageNumbers"></div>
-        <img onclick="GoRight()" class="DialogNavigation" src="Assets\Extras\right.png" alt="Next_Picture">
+        <img onclick="GoRight()" class="DialogNavigation" tabindex="0" src="Assets\Extras\right.png" alt="Next_Picture">
     </section>
 </dialog>
+
+
+</body>
+
+
 
 <script src="script.js"></script>
 
